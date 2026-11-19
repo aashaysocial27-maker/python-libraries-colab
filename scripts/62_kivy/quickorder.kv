@@ -1,0 +1,46 @@
+<ProductRow@BoxLayout>:
+    name: ""
+    size_hint_y: None
+    height: "56dp"
+    spacing: "8dp"
+    Label:
+        text: root.name
+        font_size: "18sp"
+    Button:
+        text: "-"
+        size_hint_x: None
+        width: "56dp"
+        on_release: app.change(root.name, -1)
+    Label:
+        text: str(app.counts.get(root.name, 0))
+        size_hint_x: None
+        width: "40dp"
+        font_size: "20sp"
+    Button:
+        text: "+"
+        size_hint_x: None
+        width: "56dp"
+        on_release: app.change(root.name, 1)
+
+BoxLayout:
+    orientation: "vertical"
+    padding: "16dp"
+    spacing: "10dp"
+    Label:
+        text: "ShopEasy quick order"
+        font_size: "24sp"
+        size_hint_y: None
+        height: "48dp"
+    BoxLayout:
+        id: rows
+        orientation: "vertical"
+        spacing: "6dp"
+    Label:
+        text: app.summary
+        color: 0.6, 0.65, 0.7, 1
+    Label:
+        text: "Total: Rs. " + str(app.total)
+        font_size: "26sp"
+        bold: True
+        size_hint_y: None
+        height: "56dp"
